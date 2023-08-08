@@ -1,0 +1,48 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+
+
+    <record id="block____id" model="ir.actions.act_window">
+        <field name="name">Product</field>
+        <field name="res_model">block.block</field>
+        <field name="view_mode">tree,form</field>
+    </record>
+
+
+    <record id="block_from" model="ir.ui.view">
+        <field name="name">Product</field>
+        <field name="model">block.block</field>
+        <field name="arch" type="xml">
+            <form string="block">
+                <header>
+                    <button id="id_confirm" name="sale_order" type="object" class="btn-primary"
+                        string='Create Sale Order' states='draft' />
+                    <field name="state" widget="statusbar" statusbar_visible="draft,confirm" />
+                </header>
+                <sheet>
+                    <group col="2">
+                        <field name="extra_service" />
+                        <field name="quantity" />
+                        <field name="client" />
+                    </group>
+                </sheet>
+            </form>
+        </field>
+    </record>
+
+
+    <record id="block_tree" model="ir.ui.view">
+        <field name="name">product</field>
+        <field name="model">block.block</field>
+        <field name="arch" type="xml">
+            <tree string="block">
+                <field name="extra_service" />
+                <field name="quantity" />
+                <field name="client" />
+            </tree>
+        </field>
+    </record>
+    <menuitem name="Bulk Sale" id="Bulk_Sale" sequence="10" />
+    <menuitem name="Bulk Sale" id="block_id" parent="Bulk_Sales.Bulk_Sale"
+        action="block____id" sequence="10" />
+</odoo>
